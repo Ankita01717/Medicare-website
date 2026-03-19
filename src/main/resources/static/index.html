@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare | Your Health, Our Priority</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --accent-color: #20c997;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #fff;
+            --light-bg: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-appointment {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-appointment:hover {
+            background: var(--secondary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.1)), url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-bg);
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+ /* ===== DOCTORS SECTION ===== */
+
+.doctors-section {
+    padding: 100px 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.doctors-section h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: #0b3d5c;
+}
+
+.doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.doctor-card {
+    background: #f5f7fa;
+    padding: 30px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.doctor-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.doctor-card h3 {
+    margin-bottom: 8px;
+}
+
+.doctor-card p {
+    color: #555;
+}
+/* PRODUCTS */
+.products{
+background:linear-gradient(135deg,#e3f2fd,#e8f5e9);
+padding:80px 20px;
+}
+
+.product-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+margin-top:40px;
+}
+
+.product-card{
+width:230px;
+background:white;
+border-radius:15px;
+padding:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+transition:0.4s;
+}
+
+.product-card:hover{
+transform:scale(1.05);
+}
+
+.product-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.product-card h3{
+margin:10px 0;
+}
+
+.product-card span{
+color:var(--primary);
+font-size:18px;
+font-weight:bold;
+}
+
+.product-card button{
+margin-top:10px;
+background:linear-gradient(45deg,#007bff,#20c997);
+border:none;
+padding:8px 15px;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+
+        /* Appointment Form */
+        .appointment-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: var(--white);
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 1.5rem;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background: var(--white);
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 2rem 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease-in;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-heartbeat"></i> Medicare
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#contact" class="btn-appointment">Book Appointment</a></li>
+                <li><a href="#" onclick="openProfile()">Profile</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Expert Healthcare for You & Your Family</h1>
+            <p>Welcome to Aas Medicare. We provide world-class medical services with a compassionate touch. Your health is our top priority.</p>
+            <a href="#contact" class="btn-appointment">Get a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="section-title">
+            <h2>Our Specialties</h2>
+            <p>Comprehensive care across various medical disciplines.</p>
+        </div>
+        <div class="services-grid">
+           
+            <div class="service-card">
+                <i class="fas fa-heart"></i>
+                <h3>Cardiology</h3>
+                <p>Expert care for heart health, including diagnostics and surgery.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-baby"></i>
+                <h3>Pediatrics</h3>
+                <p>Specialized medical care for infants, children, and adolescents.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tooth"></i>
+                <h3>Dental Care</h3>
+                <p>Complete dental services from checkups to cosmetic surgery.</p>
+            </div>
+        </div>
+    </section>
+    <!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+<h2>Our Medicines</h2>
+
+<div class="product-container">
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae">
+<h3>Paracetamol</h3>
+<span>₹49</span>
+<button onclick="addCart('Paracetamol')">Add to Cart</button>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88">
+<h3>Vitamin Capsules</h3>
+<span>₹199</span>
+<button onclick="addCart('Vitamin Capsules')">Add to Cart</button>
+</div>
+
+<div class="product-card">
+<img src="https://images.pexels.com/photos/5858861/pexels-photo-5858861.jpeg">
+<h3>Cough Syrup</h3>
+<span>₹120</span>
+<button onclick="addCart('Cough Syrup')">Add to Cart</button>
+</div>
+
+<div class="product-card">
+<img src="https://c.pxhere.com/photos/1d/d9/syringe_technician_pharmacy_drug_product_withdraw_vial_compounding-369155.jpg!d" alt="Tablet Strips">
+<h3>Tablet Strips</h3>
+<span>₹79</span>
+<button onclick="addCart('Tablet Strips')">Add to Cart</button>
+ </div>
+
+<div class="product-card">
+<img src="https://images.pexels.com/photos/3786124/pexels-photo-3786124.jpeg" alt="Medical Syringe">
+<h3>Medical Syringe</h3>
+<span>₹49</span>           
+<button onclick="addCart('Medical Syringe')">Add to Cart</button>
+</div>
+</div>
+
+</section>
+<section id="doctors" class="doctors-section">
+    <h2>Our Expert Doctors</h2>
+
+    <div class="doctor-grid">
+
+        <div class="doctor-card">
+            <img src="https://www.meitra.com/public/upload_file/67fbd47edc6d01744557182.jpg" alt="Doctor">
+            <h3>Dr. jerry </h3>
+            <p>Cardiologist</p>
+        </div>
+
+        <div class="doctor-card">
+            <img src="https://www.drsudeshnasaha.in/wp-content/uploads/2025/03/Dr.-Sudeshna-Saha.jpeg" alt="Doctor">
+            <h3>Dr. Sam </h3>
+            <p>Orthopedic Specialist</p>
+        </div>
+
+        <div class="doctor-card">
+            <img src="https://www.shutterstock.com/image-photo/indian-woman-doctor-260nw-2616895983.jpg" alt="Doctor">
+            <h3>Dr. john</h3>
+            <p>Pediatrician</p>
+        </div>
+
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hospital Building">
+            </div>
+            <div class="about-text">
+                <h2>About Medicare</h2>
+                <p>Founded with a vision to provide accessible and high-quality healthcare, Aas Medicare has grown into a trusted name in the medical community.</p>
+                <br>
+                <p>Our team consists of highly qualified doctors, nurses, and support staff dedicated to patient care. We utilize state-of-the-art technology to ensure accurate diagnoses and effective treatments.</p>
+                <br>
+                <ul style="list-style: none;">
+                    <li><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> 24/7 Emergency Services</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Modern Laboratory</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Experienced Specialists</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="contact" class="section">
+        <div class="section-title">
+            <h2>Book an Appointment</h2>
+            <p>Fill out the form below and we will get back to you shortly.</p>
+        </div>
+        <form class="appointment-form" id="bookingForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+1 234 567 890" required>
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department">
+                    <option value="general">General Medicine</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="pediatrics">Pediatrics</option>
+                    <option value="dental">Dental</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" required>
+            </div>
+            <button type="submit" class="btn-submit">Confirm Booking</button>
+        </form>
+    </section>
+    <!-- PROFILE PANEL -->
+<div id="profilePanel" style="position:fixed; top:0; right:-100%; width:350px; height:100%; background:#fff; box-shadow:-5px 0 15px rgba(0,0,0,0.2); transition:0.4s; z-index:2000; overflow-y:auto; padding:20px;">
+
+<h2 id="profileTitle">Login</h2>
+
+<!-- LOGIN -->
+<div id="loginBox">
+<input type="text" id="loginUser" placeholder="Username"><br><br>
+<input type="password" id="loginPass" placeholder="Password"><br><br>
+<button onclick="login()">Login</button>
+<p>Don't have account? <a href="#" onclick="showSignup()">Signup</a></p>
+</div>
+
+<!-- SIGNUP -->
+<div id="signupBox" style="display:none;">
+<input type="text" id="signupUser" placeholder="Username"><br><br>
+<input type="password" id="signupPass" placeholder="Password"><br><br>
+<button onclick="signup()">Signup</button>
+<p>Already have account? <a href="#" onclick="showLogin()">Login</a></p>
+</div>
+
+<!-- PROFILE -->
+<div id="userProfile" style="display:none;">
+<h3 id="welcomeUser"></h3>
+<button onclick="logout()">Logout</button>
+
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+
+<button onclick="buyNow()" style="margin-top:10px; background:green; color:white; padding:10px;">Buy Now</button>
+</div>
+
+<button onclick="closeProfile()" style="margin-top:20px;">Close</button>
+</div>
+<script>
+
+// OPEN/CLOSE PROFILE
+function openProfile(){
+document.getElementById("profilePanel").style.right="0";
+checkLogin();
+}
+function closeProfile(){
+document.getElementById("profilePanel").style.right="-100%";
+}
+
+// SWITCH LOGIN/SIGNUP
+function showSignup(){
+document.getElementById("loginBox").style.display="none";
+document.getElementById("signupBox").style.display="block";
+}
+function showLogin(){
+document.getElementById("signupBox").style.display="none";
+document.getElementById("loginBox").style.display="block";
+}
+
+// SIGNUP
+function signup(){
+let user=document.getElementById("signupUser").value;
+let pass=document.getElementById("signupPass").value;
+
+localStorage.setItem("user",user);
+localStorage.setItem("pass",pass);
+
+alert("Signup Successful!");
+showLogin();
+}
+
+// LOGIN
+function login(){
+let user=document.getElementById("loginUser").value;
+let pass=document.getElementById("loginPass").value;
+
+if(user===localStorage.getItem("user") && pass===localStorage.getItem("pass")){
+localStorage.setItem("loggedIn","true");
+checkLogin();
+}else{
+alert("Invalid credentials");
+}
+}
+
+// CHECK LOGIN
+function checkLogin(){
+if(localStorage.getItem("loggedIn")==="true"){
+document.getElementById("loginBox").style.display="none";
+document.getElementById("signupBox").style.display="none";
+document.getElementById("userProfile").style.display="block";
+
+document.getElementById("welcomeUser").innerText="Welcome "+localStorage.getItem("user");
+loadCart();
+}else{
+document.getElementById("userProfile").style.display="none";
+document.getElementById("loginBox").style.display="block";
+}
+}
+
+// LOGOUT
+function logout(){
+localStorage.removeItem("loggedIn");
+checkLogin();
+}
+
+// ADD TO CART
+function addCart(name,price){
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+let found=cart.find(item=>item.name===name);
+if(found){
+found.qty++;
+}else{
+cart.push({name:name,price:price,qty:1});
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+alert("Added to Cart");
+}
+
+// LOAD CART
+function loadCart(){
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let html="";
+
+cart.forEach((item,i)=>{
+html+=`
+<p>${item.name} - ₹${item.price} x ${item.qty}
+<button onclick="changeQty(${i},1)">+</button>
+<button onclick="changeQty(${i},-1)">-</button>
+<button onclick="removeItem(${i})">❌</button>
+</p>
+`;
+});
+
+document.getElementById("cartItems").innerHTML=html;
+}
+
+// CHANGE QUANTITY
+function changeQty(i,val){
+let cart=JSON.parse(localStorage.getItem("cart"));
+cart[i].qty+=val;
+
+if(cart[i].qty<=0){
+cart.splice(i,1);
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+loadCart();
+}
+
+// REMOVE ITEM
+function removeItem(i){
+let cart=JSON.parse(localStorage.getItem("cart"));
+cart.splice(i,1);
+localStorage.setItem("cart",JSON.stringify(cart));
+loadCart();
+}
+
+// BUY NOW
+function buyNow(){
+alert("Order Placed Successfully!");
+localStorage.removeItem("cart");
+loadCart();
+}
+
+</script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Aas Medicare</h3>
+                <p>Committed to your health and well-being with advanced medical care.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Health Street, Med City</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
